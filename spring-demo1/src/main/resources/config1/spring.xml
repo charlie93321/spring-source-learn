@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context1="http://www.springframework.org/schema/context"
+       xmlns:test="http://www.text.com/schema/user"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.text.com/schema/user
+       META-INF/spring-customer.xsd">
+
+
+    <context1:annotation-config/>
+    <context1:component-scan base-package="com.company.spring"/>
+
+
+   <test:user id="user01" userName="tom" email="2459060612@qq.com"></test:user>
+
+
+
+    <bean id="readerEventListener" class="com.company.spring.bean.lookup.ReaderEventListenerImpl"></bean>
+
+    <bean id="dog" class="com.company.spring.bean.lookup.Dog">
+        <property name="name" value="dog"></property>
+        <property name="id" value="1001"></property>
+    </bean>
+
+    <bean id="cat" class="com.company.spring.bean.lookup.Cat">
+        <property name="name" value="cat"></property>
+        <property name="id" value="2001"></property>
+
+    </bean>
+
+    <bean id="person2" class="com.company.spring.bean.lookup.Person" >
+        <qualifier type="com.company.spring.bean.lookup.Animal" value="dog"></qualifier>
+    </bean>
+
+
+    <bean id="replacer" class="com.company.spring.bean.lookup.ReplaceMethod"></bean>
+
+    <bean id="person" class="com.company.spring.bean.lookup.Person">
+        <lookup-method name="getAnimal2" bean="dog"></lookup-method>
+        <replaced-method name="getAnimal2" replacer="replacer"></replaced-method>
+    </bean>
+
+
+    <bean id="chinaWeiWeiCompany" name="company1,company2" class="com.company.spring.model.Company">
+        <description>我是类的说明</description>
+        <property name="id" value="1001"></property>
+        <property name="markCost" value="100000000000000"></property>
+        <property name="name" value="中华为为公司"></property>
+        <meta key="metaKey" value="metaValue"/>
+        <meta key="metaKey2" value="metaValue2"/>
+        <meta key="metaKey3" value="metaValue3"/>
+    </bean>
+
+
+    <bean id="factory" class="com.company.spring.model.DefaultFactory">
+        <property name="id" value="001"></property>
+        <property name="name" value="消费者部门"></property>
+    </bean>
+    <bean id="depart" name="depart2,depart3" class="com.company.spring.model.Depart" autowire="byType"
+          factory-bean="factory" factory-method="instanceFactoryMethod" init-method="init">
+        <property name="id" value="003"></property>
+        <property name="name" value="消费者部门2"></property>
+    </bean>
+
+    <bean id="depart4" name="depart5,depart6" class="com.company.spring.model.Depart" autowire="byType"
+          factory-method="staticFactoryMethod" init-method="init">
+        <property name="id" value="002"></property>
+        <property name="name" value="IT部门"></property>
+    </bean>
+
+    <bean id="depart9"  class="com.company.spring.model.Depart"
+          factory-bean="factory" factory-method="instanceFactoryMethod" >
+
+    </bean>
+    <!--bean 标签的 parent 属性-->
+    <!-- <bean id="p1" class="com.company.spring.bean.parent.Parent">
+         <property name="name" value="父类的名字"></property>
+         <property name="aliasName" value="父类的别称"></property>
+     </bean>
+
+
+     <bean id="c1" class="com.company.spring.bean.parent.Child" parent="p1">
+         <property name="age" value="12"></property>
+         <property name="aliasName" value="子类的别名"></property>
+     </bean>-->
+
+
+</beans>
