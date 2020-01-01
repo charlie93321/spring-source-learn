@@ -11,6 +11,10 @@
     <modules>
         <module>spring-demo1</module>
         <module>spring-beans</module>
+        <module>ThiftClient</module>
+        <module>spring-threads</module>
+        <module>dubbo-provider</module>
+        <module>dubbo-model</module>
     </modules>
 
 

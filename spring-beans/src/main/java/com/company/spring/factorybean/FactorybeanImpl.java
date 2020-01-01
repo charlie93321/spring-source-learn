@@ -13,9 +13,7 @@ public class FactorybeanImpl implements FactoryBean<Person>{
 
     private String id;
     private String name;
-
-
-
+    private Parent parent;
     /**
      * 获取T对象
      */

@@ -13,20 +13,8 @@
     <context1:component-scan base-package="com.company.spring"/>
 
 
-    <bean id="parent" class="com.company.spring.factorybean.Parent">
-        <property name="id" value="1001"></property>
-        <property name="name" value="tom"></property>
-    </bean>
-
-    <bean id="factorybean" class="com.company.spring.factorybean.FactorybeanImpl" parent="parent">
-        <property name="parent" ref="parent"/>
-    </bean>
 
 
-    <bean id="personFactory" class="com.company.spring.factorybean.PersonFactory">
-        <property name="id" value="1001"></property>
-        <property name="name" value="tom"></property>
-    </bean>
 
 
 </beans>

@@ -9,9 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-beans</artifactId>
+    <artifactId>dubbo-provider</artifactId>
 
-    <name>spring-beans</name>
+    <name>dubbo-provider</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -22,46 +22,77 @@
     </properties>
 
     <dependencies>
+
+        <!--dubbo 依赖配置 -->
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
-            <scope>compile</scope>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>2.4.8</version>
+            <groupId>com.company.spring</groupId>
+            <artifactId>dubbo-model</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.2</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>5.1.5.RELEASE</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>5.1.5.RELEASE</version>
+            <version>5.0.8.RELEASE</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.1.5.RELEASE</version>
+            <artifactId>spring-beans</artifactId>
+            <version>5.0.8.RELEASE</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.8.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.7.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.3</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>
